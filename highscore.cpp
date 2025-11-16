@@ -325,7 +325,10 @@ void highscore::load()
     pFile = fopen ("scores.sav","rb");
     if (pFile)
     {
-        fread(mEntries, 1, sizeof(mEntries), pFile);
+        size_t ret = fread(mEntries, 1, sizeof(mEntries), pFile);
+        if (ret <= 0) {
+            printf("fread() returned %zu\n", ret);
+        }
         fclose(pFile);
     }
 }
@@ -336,7 +339,10 @@ void highscore::save()
     pFile = fopen ("scores.sav","wb");
     if (pFile)
     {
-        fwrite(mEntries, 1, sizeof(mEntries), pFile);
+        size_t ret = fwrite(mEntries, 1, sizeof(mEntries), pFile);
+        if (ret <= 0) {
+            printf("fwrite() returned %zu\n", ret);
+        }
         fclose(pFile);
     }
 }

@@ -808,7 +808,7 @@ void game::showMessageAtLocation(char* message, const Point3d& pos, const vector
             mPointDisplays[i].enabled = TRUE;
             mPointDisplays[i].pos = pos;
             mPointDisplays[i].pen = pen;
-            sprintf(mPointDisplays[i].message, message);
+            snprintf(mPointDisplays[i].message, sizeof(mPointDisplays[i].message), "%s", message);
             mPointDisplays[i].timer = TIME_POINT_DISPLAY;
             break;
         }

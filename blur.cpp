@@ -26,8 +26,6 @@ void superFastBlur(unsigned char *pix, int w, int h, int radius)
     int rsum,gsum,bsum,x,y,i,p,p1,p2,yp,yi,yw;
     int vMIN[max(w,h)];
     int vMAX[max(w,h)];
-	int px1[w];
-	int px2[w];
 
     unsigned char dv[256*div];
     for (i=0;i<256*div;i++) dv[i]=(i/div);
